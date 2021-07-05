@@ -53,7 +53,7 @@ struct CPU{
     void Update(){
         CDB.CPU_ROB->OldARR=CDB.CPU_ROB->NewARR;
         CDB.CPU_LSB->OldARR=CDB.CPU_LSB->NewARR;
-        for (int i=0;i<10;i++)
+        for (int i=0;i<7;i++)
             CDB.CPU_RS->OldARR[i]=CDB.CPU_RS->NewARR[i];
         CDB.CPU_RS->OldBusynum=CDB.CPU_RS->NewBusynum;
         CDB.CPU_IU->OldPC=CDB.CPU_IU->NewPC;

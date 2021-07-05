@@ -173,7 +173,7 @@ struct InstructionUnit{
             }else NewPC=Wire.NexPC;
         }
         // printf("%d %d %d %d\n",NewARR.Size(),IUIter->CPU_ROB->OldARR.Size(),IUIter->CPU_RS->OldBusynum,IUIter->CPU_LSB->OldARR.Size());
-        if (NewARR.Size()>=1 && IUIter->CPU_ROB->OldARR.Size()<30 && IUIter->CPU_RS->OldBusynum<16 && IUIter->CPU_LSB->OldARR.Size()<16)
+        if (NewARR.Size()>=1 && IUIter->CPU_ROB->OldARR.Size()<8 && IUIter->CPU_RS->OldBusynum<4 && IUIter->CPU_LSB->OldARR.Size()<4)
         {
             Wire.IssueFlag=1;
             Wire.IssuePair=NewARR.Front();

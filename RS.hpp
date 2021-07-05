@@ -4,7 +4,7 @@
 #include"register.hpp"
 #include"ROB.hpp"
 extern Sig Wire; 
-const int N=20;
+const int N=7;
 struct RS{
     Iter *RSIter;
     struct RSNode{
