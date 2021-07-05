@@ -53,7 +53,7 @@ struct CPU{
     void Update(){
         CDB.CPU_ROB->OldARR=CDB.CPU_ROB->NewARR;
         CDB.CPU_LSB->OldARR=CDB.CPU_LSB->NewARR;
-        for (int i=0;i<7;i++)
+        for (int i=0;i<20;i++)
             CDB.CPU_RS->OldARR[i]=CDB.CPU_RS->NewARR[i];
         CDB.CPU_RS->OldBusynum=CDB.CPU_RS->NewBusynum;
         CDB.CPU_IU->OldPC=CDB.CPU_IU->NewPC;
@@ -79,32 +79,37 @@ struct CPU{
     void run(){
         duru();
 
-        srand(time(0));
-        int p[6];
-        for (int i=0;i<5;i++) p[i]=i;
+        // srand(time(0));
+        // int p[6];
+        // for (int i=0;i<5;i++) p[i]=i;
         while (1)
         {
-            random_shuffle(p,p+5);
-            for (int i=0;i<5;i++)
-            switch (p[i])
-            {
-            case 0:
-                CDB.CPU_ROB->Run();
-                break;
-            case 1:
-                CDB.CPU_LSB->Run();
-                break;
-            case 2:
-                CDB.CPU_RS->Run();
-                break;
-            case 3:
-                CDB.CPU_REG->Run();
-                break;
+            // random_shuffle(p,p+5);
+            // for (int i=0;i<5;i++)
+            // switch (p[i])
+            // {
+            // case 0:
+            //     CDB.CPU_ROB->Run();
+            //     break;
+            // case 1:
+            //     CDB.CPU_LSB->Run();
+            //     break;
+            // case 2:
+            //     CDB.CPU_RS->Run();
+            //     break;
+            // case 3:
+            //     CDB.CPU_REG->Run();
+            //     break;
             
-            default:
-                CDB.CPU_IU->Run();
-                break;
-            }
+            // default:
+            //     CDB.CPU_IU->Run();
+            //     break;
+            // }
+            CDB.CPU_ROB->Run();
+            CDB.CPU_LSB->Run();
+            CDB.CPU_RS->Run();
+            CDB.CPU_REG->Run();
+            CDB.CPU_IU->Run();
             Update();
             // for (int i=0;i<CDB.CPU_IU->OldARR.Size();i++)
             //     printf("%u %u\n",CDB.CPU_IU->OldARR[i].first,CDB.CPU_IU->OldARR[i].second);
